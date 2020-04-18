@@ -8,9 +8,9 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 	Scanner sc = new Scanner(System.in);
 
-	UsuarioJefe jefe;
+	UsuarioJefe jefe;//mirar buscar x numero de copias
 
-	UsuarioEstandar usuarioEstandar;
+	UsuarioEstandar usuarioEstandar;//volver despues de buscar
 
 	Cliente client;
 
@@ -344,7 +344,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 								case 777:
 
-									do {
+									//do {
 
 										menuEncontrarElementoPorAtributo();
 
@@ -402,7 +402,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 										}
 
-									} while (opc != 5555);
+									//} while (opc != 5555);
 
 									break;
 
@@ -507,9 +507,9 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 			case 7:
 
 				do {
-					// ******************************
-					System.out.println("Qué elemento quieres eliminar?");// MIrar Esto xq no elimina//////
-					System.out.println("1.Película        2.Serie"); // *******************************
+					
+					System.out.println("Qué elemento quieres eliminar?");
+					System.out.println("1.Película        2.Serie"); 
 
 					pedirOpcion();
 
@@ -986,8 +986,6 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 		addPeliculasSeries();
 
-		//String nombreCliente = null;*********************
-
 		Integer idCliente = null;
 
 		do {
@@ -1186,7 +1184,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 								case 777:
 
-									do {
+									//do {
 
 										menuEncontrarElementoPorAtributo();
 
@@ -1242,13 +1240,13 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											opcionIncorrecta();
 
+										break;
+										
 										}
 
-										break;
+									//} while (opc != 5555);
 
-									} while (opc != 5555);
-
-									break;
+									//break;
 
 								case 888:
 

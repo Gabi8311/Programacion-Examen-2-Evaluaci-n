@@ -47,7 +47,7 @@ public class UsuarioJefe extends UsuarioSistema {
 
 		uS = new UsuarioEstandar(introducirNombreEmpleNuevo(), introducirContraseñaEmpleNuevo(contra),
 				introducirIdEmpleNuevo(staff));
-		//sc.nextLine();
+		// sc.nextLine();
 
 		for (UsuarioSistema i : staff) {
 
@@ -159,42 +159,45 @@ public class UsuarioJefe extends UsuarioSistema {
 		boolean condicion = true;
 
 		do {
-				condicion = true;
-				
+			condicion = true;
+
 			System.out.println("Introduce el número de Id del nuevo empleado");
 			idEmple = sc.nextInt();
 			sc.nextLine();
-System.out.println("numero recibido");
+
 			if (idEmple == 1) {
 
-				System.out.println("Ese número está reservado para el CEO de la empresa");
+				System.out.println("** Este número está reservado para el CEO de la empresa **");
+				System.out.println("");
 
 				condicion = false;
 
 			} else {
 
 				if (staff.size() == 0) {
-System.out.println("el staff vacio");
+
 					condicion = true;
 
 				} else {
-System.out.println("staff no esta vacio");
+
 					for (UsuarioSistema i : staff) {
-System.out.println(i.getId());
+
 						if (idEmple.equals(i.getId())) {
 
-							System.out.println("Id no válido,ya tenemos un empleado registrado con ese número");
+							System.out.println("Identificador no válido,ya tenemos un empleado registrado con ese número");
+							System.out.println("");
+							
 							condicion = false;
 						}
 
 					}
+					
 				}
-				
-				
+
 			}
-System.out.println("fin bucle"+condicion);
+
 		} while (condicion == false);
-System.out.println(idEmple);
+
 		return idEmple;
 
 	}
