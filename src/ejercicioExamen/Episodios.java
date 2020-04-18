@@ -1,6 +1,9 @@
 package ejercicioExamen;
 
-public class Episodios extends Alquilables {// ESTO TENDRÍA QUE HEREDAR DE aLQUILABLES?
+public class Episodios {
+	
+	private Double valoracion;
+	
 
 	public Episodios() {
 
@@ -10,6 +13,18 @@ public class Episodios extends Alquilables {// ESTO TENDRÍA QUE HEREDAR DE aLQU
 
 		this.valoracion = valoracion;
 
+	}
+
+	public Double getValoracion() {
+		
+		return valoracion;
+		
+	}
+
+	public void setValoracion(Double valoracion) {
+		
+		this.valoracion = valoracion;
+		
 	}
 
 }

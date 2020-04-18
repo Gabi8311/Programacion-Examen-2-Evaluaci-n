@@ -1,6 +1,7 @@
 package ejercicioExamen;
 
 import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Peliculas extends Alquilables {
@@ -37,7 +38,10 @@ public class Peliculas extends Alquilables {
 		this.tipo = tipo;
 
 	}
-
+	
+	/*Añade la pelicula al videoclub,y según de que tipo sea,los va añadiendo
+	 * ha varios ArrayList,de los generales y a los más concretos a su tipo.
+	 * */
 	public boolean addPeliculaAlVideoClub(Peliculas nuevo, ArrayList<Alquilables> alquilables,
 			ArrayList<Peliculas> peliculas, ArrayList<Peliculas> animacion, ArrayList<Peliculas> cienciaFiccion,
 			ArrayList<Peliculas> tradicional, ArrayList<Peliculas> porOrdenador, ArrayList<Peliculas> stopMotion,
@@ -122,7 +126,7 @@ public class Peliculas extends Alquilables {
 
 			} while (opc != 1 && opc != 2 && opc != 3);
 
-			ArrayList<Double> media = new ArrayList<>();// Esto se hace así?
+			ArrayList<Double> media = new ArrayList<>();
 
 			nuevo.nombre = titulo;
 			nuevo.director = nomDirector;
@@ -131,28 +135,24 @@ public class Peliculas extends Alquilables {
 			nuevo.numCopias = numCopias;
 			nuevo.mediaValoraciones = media;
 
-			alquilables.add(nuevo);
-			peliculas.add(nuevo);
-
 			if (opc == 1) {
 
-				nuevo.setTipo("Ciencia Ficción");
-
+				nuevo.setTipo("Ciencia Ficción");				
+				alquilables.add(nuevo);			
+				peliculas.add(nuevo);
 				cienciaFiccion.add(nuevo);
 
 			} else if (opc == 3) {
 
 				System.out.println("Indica el tipo de la película");
-
 				otroTipo = sc.nextLine();
-
+				
 				nuevo.setTipo(otroTipo);
-
+				alquilables.add(nuevo);
+				peliculas.add(nuevo);
 				otras.add(nuevo);
 
 			} else {
-
-				animacion.add(nuevo);
 
 				do {
 
@@ -164,22 +164,34 @@ public class Peliculas extends Alquilables {
 
 					if (opc2 != 1 && opc2 != 2 && opc2 != 3) {
 
-						System.out.println("**OPCIÓN INCORRECTA**");
+						System.out.println("** OPCIÓN INCORRECTA **");
 
 					}
 
 				} while (opc2 != 1 && opc2 != 2 && opc2 != 3);
 
 				if (opc2 == 1) {
-
+					
+					nuevo.setTipo("Animación:Tradicional");
+					alquilables.add(nuevo);
+					peliculas.add(nuevo);
+					animacion.add(nuevo);
 					tradicional.add(nuevo);
 
 				} else if (opc2 == 2) {
-
+					
+					nuevo.setTipo("Animación:Por Ordenador");
+					alquilables.add(nuevo);
+					peliculas.add(nuevo);
+					animacion.add(nuevo);
 					porOrdenador.add(nuevo);
 
 				} else {
-
+					
+					nuevo.setTipo("Animación:Stop Motion");
+					alquilables.add(nuevo);
+					peliculas.add(nuevo);
+					animacion.add(nuevo);
 					stopMotion.add(nuevo);
 
 				}
@@ -205,13 +217,8 @@ public class Peliculas extends Alquilables {
 		Scanner sc = new Scanner(System.in);
 
 		for (Alquilables i : peliculas) {
-			System.out.println(i.getNombre());
 
 			if (i.getNombre().equalsIgnoreCase(nombre)) {
-				
-				peliculas.remove(i);
-				
-				alquilables.remove(i);
 
 				do {
 
@@ -231,15 +238,49 @@ public class Peliculas extends Alquilables {
 
 				if (opc == 1) {
 
-					cienciaFiccion.remove(i);
+					for (Peliculas j : cienciaFiccion) {
+
+						if (j.getNombre().equalsIgnoreCase(nombre) && j.getTipo().equalsIgnoreCase("Ciencia Ficción")) {
+
+							cienciaFiccion.remove(i);
+
+							peliculas.remove(i);
+
+							alquilables.remove(i);
+
+							return true;
+
+						}
+
+					}
+
+					System.out.println("** Tipo de película incorrecto **");
+
+					return false;
 
 				} else if (opc == 3) {
 
-					otras.remove(i);
+					for (Peliculas j : otras) {
+
+						if (j.getNombre().equalsIgnoreCase(nombre) && j.getTipo().equalsIgnoreCase("Otra")) {
+
+							otras.remove(i);
+
+							peliculas.remove(i);
+
+							alquilables.remove(i);
+
+							return true;
+
+						}
+
+					}
+
+					System.out.println("** Tipo de película incorrecto **");
+
+					return false;
 
 				} else {
-
-					animacion.remove(i);
 
 					do {
 
@@ -259,21 +300,83 @@ public class Peliculas extends Alquilables {
 
 					if (opc2 == 1) {
 
-						tradicional.remove(i);
+						for (Peliculas j : tradicional) {
+
+							if (j.getNombre().equalsIgnoreCase(nombre)
+									&& j.getTipo().equalsIgnoreCase("Animación:Tradicional")) {
+
+								animacion.remove(i);
+
+								tradicional.remove(i);
+
+								peliculas.remove(i);
+
+								alquilables.remove(i);
+
+								return true;
+
+							}
+
+						}
+
+						System.out.println("** Tipo de película incorrecto **");
+
+						return false;
 
 					} else if (opc2 == 2) {
 
-						porOrdenador.remove(i);
+						for (Peliculas j : porOrdenador) {
+
+							if (j.getNombre().equalsIgnoreCase(nombre)
+									&& j.getTipo().equalsIgnoreCase("Animación:Por ordenador")) {
+
+								animacion.remove(i);
+
+								porOrdenador.remove(i);
+
+								peliculas.remove(i);
+
+								alquilables.remove(i);
+
+								return true;
+
+							}
+
+						}
+
+						System.out.println("** Tipo de película incorrecto **");
+
+						return false;
 
 					} else {
 
-						stopMotion.remove(i);
+						for (Peliculas j : stopMotion) {
+
+							if (j.getNombre().equalsIgnoreCase(nombre)
+									&& j.getTipo().equalsIgnoreCase("Animación:Stop Motion")) {
+
+								animacion.remove(i);
+
+								stopMotion.remove(i);
+
+								peliculas.remove(i);
+
+								alquilables.remove(i);
+
+								return true;
+
+							}
+
+						}
+
+						System.out.println("** Tipo de película incorrecto **");
+
+						return false;
 
 					}
 
 				}
-				
-				return true;
+
 			}
 
 		}

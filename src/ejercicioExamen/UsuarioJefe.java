@@ -46,10 +46,10 @@ public class UsuarioJefe extends UsuarioSistema {
 		// números de cliente iguales
 
 		uS = new UsuarioEstandar(introducirNombreEmpleNuevo(), introducirContraseñaEmpleNuevo(contra),
-				introducirIdEmpleNuevo(idEmple));
-		sc.nextLine();
+				introducirIdEmpleNuevo(staff));
+		//sc.nextLine();
 
-		for (UsuarioSistema i : staff) {// Este metodo tiene que evitar que se llamen igual el jefe y los empleados
+		for (UsuarioSistema i : staff) {
 
 			if (uS.getId() == i.getId()) {
 
@@ -134,6 +134,7 @@ public class UsuarioJefe extends UsuarioSistema {
 		while (nombre.equals("g")) {// CAMBIAR ESTO Y EL JEFE USUARIO SISTEMA
 
 			System.out.println("Nombre reservado para la empresa.Introduce otro nombre válido");
+			System.out.println("");
 			System.out.println("Introduce el nombre del nuevo empleado");
 			nombre = sc.nextLine();
 
@@ -151,25 +152,106 @@ public class UsuarioJefe extends UsuarioSistema {
 
 	}
 
-	public Integer introducirIdEmpleNuevo(Integer idEmple) {
+	public Integer introducirIdEmpleNuevo(ArrayList<UsuarioSistema> staff) {
+
+		Integer idEmple;
+
+		boolean condicion = true;
 
 		do {
-
-			System.out.println("Introduce el número de empleado del nuevo empleado");
-
+				condicion = true;
+				
+			System.out.println("Introduce el número de Id del nuevo empleado");
 			idEmple = sc.nextInt();
-
+			sc.nextLine();
+System.out.println("numero recibido");
 			if (idEmple == 1) {
 
-				System.out.println("Ese número está reservado para el CEO");
+				System.out.println("Ese número está reservado para el CEO de la empresa");
 
+				condicion = false;
+
+			} else {
+
+				if (staff.size() == 0) {
+System.out.println("el staff vacio");
+					condicion = true;
+
+				} else {
+System.out.println("staff no esta vacio");
+					for (UsuarioSistema i : staff) {
+System.out.println(i.getId());
+						if (idEmple.equals(i.getId())) {
+
+							System.out.println("Id no válido,ya tenemos un empleado registrado con ese número");
+							condicion = false;
+						}
+
+					}
+				}
+				
+				
 			}
-
-		} while (idEmple == 1);
-
+System.out.println("fin bucle"+condicion);
+		} while (condicion == false);
+System.out.println(idEmple);
 		return idEmple;
 
 	}
+
+//		boolean condicion = false;
+//		
+//		do {
+//			
+//			System.out.println("Introduce el número de identificación del nuevo empleado");
+//
+//			idEmple = sc.nextInt();
+//
+//			if (idEmple == 1) {
+//
+//				System.out.println("Ese número está reservado para el CEO");
+//				
+//				System.out.println(condicion);
+//				 
+//				condicion = false;
+//				
+//
+//			} else if(staff.size()==0) {
+//				System.out.println("esta vacio");
+//				
+//						condicion = true;
+//							
+//						return idEmple;
+//						
+//		    }else  {
+//		    	boolean noesigual = true;
+//		    			for(UsuarioSistema i:staff) {
+//		    				
+//		    				System.out.println(i.getId());
+//		    				System.out.println(idEmple);
+//		    			  if(idEmple.equals(i.getId())){
+//		    				
+//		    				System.out.println("Ese número ya lo tiene un empleado como identificador");
+//		    				
+//		    				condicion = false;
+//		    				noesigual = false;
+//		    			  }
+//		    			  
+//		    			}	
+//		    			if(noesigual) {
+//		    				condicion = true;
+//		    			}
+//					
+//				}
+//			
+//		
+//	
+//
+//		} while (condicion == false);
+//
+//		return idEmple;
+//
+//	}
 
 	public void ListarEmpleados(ArrayList<UsuarioSistema> staff) {
 

@@ -522,11 +522,13 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 						
 						if (nueva.eliminarPelicula(nombre, totalElementos, peliculas, animacion, cienciaFiccion,tradicional, porOrdenador, stopMotion, otras) == true) {
 
+							System.out.println("");
 							System.out.println("Película eliminada de la Base de Datos");
 
 						} else {
-
-							System.out.println("El nombre introducido no corresponde con ninguna película del videoclub");
+							
+							System.out.println("");
+							System.out.println("Los datos introducidos no son correctos");
 
 						}
 
@@ -535,14 +537,16 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 						System.out.println("Qué nombre tiene la serie que vamos a eliminar?");
 						nombre = sc.nextLine();
 
-						estreno = new Series();/// el fallo viene aki
+						estreno = new Series();
 
 						if (estreno.eliminarSerie(nombre, totalElementos, series) == true) {
 
+							System.out.println("");
 							System.out.println("Serie eliminada de la Base de Datos");
 
 						} else {
 
+							System.out.println("");
 							System.out.println("El nombre introducido no corresponde con ninguna serie del videoclub");
 
 						}
@@ -1355,8 +1359,9 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 							System.out.println("Película eliminada de la Base de Datos");
 
 						} else {
-
-							System.out.println("El nombre introducido no corresponde con ninguna película del videoclub");
+							
+							System.out.println("");
+							System.out.println("Los datos introducidos no son correctos");
 
 						}
 

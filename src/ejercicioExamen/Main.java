@@ -62,12 +62,7 @@ public class Main {
 			System.out.println("********************");
 
 		}
-		if (contador < 0) {
-
-			System.out.println("ADIÓS!!ADIÓS!!");
-
-		}
-
+		
 		sc.close();
 
 	}

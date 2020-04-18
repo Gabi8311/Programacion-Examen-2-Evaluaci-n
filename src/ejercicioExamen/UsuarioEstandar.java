@@ -12,13 +12,6 @@ public class UsuarioEstandar extends UsuarioSistema{
 			
 	}
 	
-//	public void mostrarDatos() {ESTO NO HACE FALTA
-//
-//		System.out.println(this);
-//		
-//	}
-	
-	
 	@Override
 	public String toString() {
 

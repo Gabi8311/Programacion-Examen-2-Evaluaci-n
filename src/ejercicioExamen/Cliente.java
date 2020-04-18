@@ -1,7 +1,5 @@
 package ejercicioExamen;
 
-import java.util.ArrayList;
-
 public class Cliente {
 
 	private String name;
@@ -10,9 +8,6 @@ public class Cliente {
 
 	private Integer accountNumber;
 
-	private ArrayList<Peliculas> pelisCliente = new ArrayList<Peliculas>();
-
-	private ArrayList<Series> seriesCliente = new ArrayList<Series>();
 
 	public Cliente() {
 
@@ -25,20 +20,6 @@ public class Cliente {
 		this.surname = surname;
 
 		this.accountNumber = accountNumber;
-
-	}
-
-	public Cliente(String name, String surname, Integer accountNumber, ArrayList<Peliculas> pelisAlqCliente,ArrayList<Series> seriesAlqCliente) {
-
-		this.name = name;
-
-		this.surname = surname;
-
-		this.accountNumber = accountNumber;
-
-		this.pelisCliente = pelisAlqCliente;
-
-		this.seriesCliente = seriesAlqCliente;
 
 	}
 

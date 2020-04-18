@@ -17,6 +17,7 @@ public class Alquilables {
 	protected ArrayList<Alquilables> totalElementos = new ArrayList<Alquilables>();
 
 	protected Integer numCopias;
+	
 
 	public Alquilables() {
 
@@ -66,6 +67,10 @@ public class Alquilables {
 
 	}
 
+	/*Este método saca la media de las valoraciones.
+	 * Le pasamos el ArrayList de las medias de las valoraciones
+	 * y le pasamos la nueva valoración.
+	 * */
 	
 	public Double mediaValoracion(ArrayList<Double> valoraciones, Double valoracion) {
 
@@ -164,7 +169,7 @@ public class Alquilables {
 
 		return "Título: " + this.nombre + "\n Director: " + this.director + "; Año de estreno: " + this.lazamiento +
 
-				"; Valoración de los usuarios: " + this.valoracion + "; Num.Copias: " + this.numCopias+"/n";
+				"; Valoración de los usuarios: " + this.valoracion + "; Num.Copias: " + this.numCopias;
 
 	}
 
