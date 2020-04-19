@@ -19,7 +19,7 @@ public class Temporadas {
 
 		Integer numEpisodios;
 
-		System.out.println("Cuantos episodios tiene?");
+		System.out.println("Cuántos episodios tiene?");
 		numEpisodios = sc.nextInt();
 		sc.nextLine();
 

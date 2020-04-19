@@ -1,4 +1,4 @@
-package ejercicioExamen;					
+package ejercicioExamen;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,6 @@ public class Alquilables {
 	protected ArrayList<Alquilables> totalElementos = new ArrayList<Alquilables>();
 
 	protected Integer numCopias;
-	
 
 	public Alquilables() {
 
@@ -67,11 +66,11 @@ public class Alquilables {
 
 	}
 
-	/*Este método saca la media de las valoraciones.
-	 * Le pasamos el ArrayList de las medias de las valoraciones
-	 * y le pasamos la nueva valoración.
-	 * */
-	
+	/*
+	 * Este método saca la media de las valoraciones. Le pasamos el ArrayList de las
+	 * medias de las valoraciones y le pasamos la nueva valoración.
+	 */
+
 	public Double mediaValoracion(ArrayList<Double> valoraciones, Double valoracion) {
 
 		Double nuevaMedia = 0.0;
@@ -89,8 +88,6 @@ public class Alquilables {
 		return nuevaMedia;
 
 	}
-	
-
 
 	public String getNombre() {
 

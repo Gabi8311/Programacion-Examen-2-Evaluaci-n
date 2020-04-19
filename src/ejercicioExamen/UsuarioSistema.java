@@ -69,10 +69,14 @@ public class UsuarioSistema extends Usuario {
 		for (UsuarioSistema i : usuarioAplicacion) {
 
 			if (i.getNombre().equalsIgnoreCase(nombre)) {
-
+				
+				System.out.println("");
 				System.out.println("Contraseña:");
+				System.out.println("");
 
 				contra = sc.nextLine();
+				
+				System.out.println("");
 
 				if (i.getContra().equals(contra)) {
 
@@ -108,8 +112,11 @@ public class UsuarioSistema extends Usuario {
 
 		return false;
 	}
+	
+	/*Crea el nuevo cliente y le asigna nombre,apellido y número de cliente.
+	 * Comprueba que no haya 2 socios con el mismo número*/
 
-	public boolean addCliente(ArrayList<Cliente> socios) {// Este método mira que no haya 2 números de cliente iguales
+	public boolean addCliente(ArrayList<Cliente> socios) {
 
 		cliente = new Cliente(introducirNombre(), introducirApellido(), introducirNumClienteNuevo());
 		sc.nextLine();
@@ -129,6 +136,11 @@ public class UsuarioSistema extends Usuario {
 		return true;
 
 	}
+	
+	/*Borra al cliente.Devuelve 2 si no hay socios a los que borrar.
+	 * Devuelve 1 si todo funciona correcto y se borra el cliente.
+	 * Devuelve 0,si el nombre coincide pero el número de socio no.
+	 * Devuelve -1,si el nombre no coincide con el introducido.*/
 
 	public int removeCliente(String nombre, Integer numSocio, ArrayList<Cliente> socios) {
 
@@ -302,8 +314,8 @@ public class UsuarioSistema extends Usuario {
 		return lista;
 
 	}
-
-	public int alquilarPelicula(String peli, ArrayList<Peliculas> pelis, ArrayList<Peliculas> alquiladas) {
+	
+	public Integer alquilarPelicula(String peli, ArrayList<Peliculas> pelis, ArrayList<Peliculas> alquiladas) {
 
 		for (Peliculas i : pelis) {
 
@@ -430,6 +442,9 @@ public class UsuarioSistema extends Usuario {
 		return false;
 
 	}
+	
+	/*ESTE MÉTODO ESTÁ INUTILZADO.LO HICE PARA EL ALQUILER DE TEMPORADA,PERO POR FALTA DE TIEMPO,
+	 * NO PUDE.EN UN FUTURO PRÓXIMO LO TERMINARÉ,DÁNDOLE SU UTILIDAD*/
 
 	public int alquilarTemporada(String serie, ArrayList<Series> series, ArrayList<Series> SeriesAlq,
 			ArrayList<Temporadas> temporadas, Integer numTemporada) {
@@ -470,7 +485,7 @@ public class UsuarioSistema extends Usuario {
 
 				}
 
-				return 1;// serie alquilada
+				return 1;// temporada alquilada
 
 			}
 
@@ -522,7 +537,7 @@ public class UsuarioSistema extends Usuario {
 
 	public Integer introducirNumCliente() {
 
-		System.out.println("Introduce el número de Cliente");
+		System.out.println("Introduce el número de Socio");
 
 		return sc.nextInt();
 

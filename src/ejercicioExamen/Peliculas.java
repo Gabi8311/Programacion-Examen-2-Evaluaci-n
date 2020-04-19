@@ -41,6 +41,7 @@ public class Peliculas extends Alquilables {
 	
 	/*Añade la pelicula al videoclub,y según de que tipo sea,los va añadiendo
 	 * ha varios ArrayList,de los generales y a los más concretos a su tipo.
+	 * Pasamos al método todos los ArrayList de los que pueden formar parte.
 	 * */
 	public boolean addPeliculaAlVideoClub(Peliculas nuevo, ArrayList<Alquilables> alquilables,
 			ArrayList<Peliculas> peliculas, ArrayList<Peliculas> animacion, ArrayList<Peliculas> cienciaFiccion,
@@ -84,11 +85,11 @@ public class Peliculas extends Alquilables {
 			Integer lanzamiento = sc.nextInt();
 			sc.nextLine();
 
-			if (lanzamiento > 2020) {
+			while (lanzamiento > 2020 || lanzamiento < 1895) {
 
 				System.out.println("Año de lanzamiento erróneo");
 				System.out.println("Introduce el año de lanzamiento real:");
-				valoracion = sc.nextDouble();
+				lanzamiento = sc.nextInt();
 				sc.nextLine();
 
 			}
@@ -97,7 +98,7 @@ public class Peliculas extends Alquilables {
 			Double valoracion = sc.nextDouble();
 			sc.nextLine();
 
-			if (valoracion > 5.1 || valoracion < 0.0) {
+			while (valoracion > 5.1 || valoracion < 0.0) {
 
 				System.out.println("La valoración debe ir de 0 a 5");
 				System.out.println("Introduce valoración inicial,entre esas cifras:");
@@ -205,6 +206,11 @@ public class Peliculas extends Alquilables {
 		return false;
 
 	}
+	
+	/*Elimina la película del videoclub y de todos los ArrayList que forma parte,
+	 * desde los más generales hasta los más concretos.
+	 *  Pasamos al método todos los ArrayList de los que pueden formar parte.
+	 * */
 
 	public boolean eliminarPelicula(String nombre, ArrayList<Alquilables> alquilables, ArrayList<Peliculas> peliculas,
 			ArrayList<Peliculas> animacion, ArrayList<Peliculas> cienciaFiccion, ArrayList<Peliculas> tradicional,
@@ -262,7 +268,7 @@ public class Peliculas extends Alquilables {
 
 					for (Peliculas j : otras) {
 
-						if (j.getNombre().equalsIgnoreCase(nombre) && j.getTipo().equalsIgnoreCase("Otra")) {
+						if (j.getNombre().equalsIgnoreCase(nombre)) {
 
 							otras.remove(i);
 
@@ -400,7 +406,7 @@ public class Peliculas extends Alquilables {
 	@Override
 	public String toString() {
 
-		return super.toString() + "; Tipo: " + this.tipo;
+		return super.toString() + "; Tipo: " + this.tipo+"\n";
 
 	}
 

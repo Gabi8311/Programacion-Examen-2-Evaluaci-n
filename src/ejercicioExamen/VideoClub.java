@@ -1,22 +1,20 @@
-package ejercicioExamen;//poner un nombre Inicializar el Jefe****************************
-                     ////**************************************
+package ejercicioExamen;
+                    
 import java.util.ArrayList;
 
 import java.util.Scanner;
 
-public class VideoClub { // Pasar la valoracion de una serie a las temporadas y episodios
+public class VideoClub { 
 
-	Scanner sc = new Scanner(System.in);
+	UsuarioJefe jefe;
 
-	UsuarioJefe jefe;//mirar buscar x numero de copias
-
-	UsuarioEstandar usuarioEstandar;//volver despues de buscar
+	UsuarioEstandar usuarioEstandar;
 
 	Cliente client;
 
 	String peli;
 
-	String serie;//todos private
+	String serie;
 
 	Double valoracionCliente;
 
@@ -62,11 +60,11 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 	private ArrayList<Series> seriesAlq = new ArrayList<>();
 
-	private Integer opc;///ESTO TIENE QUE SER PRIVATE********************
+	private Integer opc;
 
-	private Peliculas nueva;///ESTO TIENE QUE SER PRIVATE********************
+	private Peliculas nueva;
 
-	private Series estreno;///ESTO TIENE QUE SER PRIVATE********************
+	private Series estreno;
 
 	Peliculas p1 = new Peliculas("Star Wars:Episodio 1-La amenaza fantasma", "George Lucas", 1999, 5.0, 10,"Ciencia Ficción");
 	Peliculas p2 = new Peliculas("Star Wars:Episodio 2-El ataque de los clones", "George Lucas", 2002, 5.0, 10,"Ciencia Ficción");
@@ -98,6 +96,8 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 	Series s4 = new Series("Los Soprano", "David Chase", 1999, 5.0, 10, 6);
 	Series s5 = new Series("Hijos de la Anarquía", "Kurt Sutter", 2008, 5.0, 10, 7);
 	Series s6 = new Series("Breaking Bad", "Vince Gilligan", 2008, 5.0, 10, 5);
+	
+	Scanner sc = new Scanner(System.in);
 
 	public boolean iniciarSesion(UsuarioSistema usuario, ArrayList<UsuarioSistema> usuariosAplicacion) {
 
@@ -344,7 +344,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 								case 777:
 
-									//do {
+									do {
 
 										menuEncontrarElementoPorAtributo();
 
@@ -356,7 +356,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = (jefe.buscarAlquilablePorNombre(nombre, totalElementos));
 
-											System.out.println(listaElementos.toString());// mejorar
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -366,7 +366,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = jefe.buscarAlquilablePorDirector(nombre, totalElementos);
 
-											System.out.println(listaElementos.toString());// mejorar
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -376,7 +376,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = jefe.buscarAlquilableLanzamiento(aux, totalElementos);
 
-											System.out.println(listaElementos.toString());// mejorar
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -399,11 +399,16 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 										default:
 
 											opcionIncorrecta();
+											
+											break;
 
 										}
+										
 
-									//} while (opc != 5555);
+									} while (opc != 5555);
 
+									
+									
 									break;
 
 								case 888:
@@ -508,10 +513,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 				do {
 					
-					System.out.println("Qué elemento quieres eliminar?");
-					System.out.println("1.Película        2.Serie"); 
-
-					pedirOpcion();
+					menuEliminarElemento();
 
 					if (opc == 1) {
 
@@ -562,7 +564,8 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 				break;
 
 			case 8:
-
+				
+				System.out.println("");
 				System.out.println("Gracias por utilizar la Aplicación!!Hasta pronto!!");
 
 				break;
@@ -638,7 +641,8 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 	}
 
 	public void menuEncontrarElementoPorAtributo() {
-
+		
+		
 		System.out.println("Qué atributo usamos para encortrarlo?");
 		System.out.println("1.Nombre");
 		System.out.println("2.Director");
@@ -725,7 +729,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 	public void imprimirTotalSeries() {
 		
 		System.out.println("TOTAL SERIES");
-		System.out.println("............");
+		System.out.println("------------");
 
 		for (Series i : series) {
 
@@ -853,7 +857,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 		System.out.println("4.Alquilar serie");
 		System.out.println("5.Devolver pelicula");
 		System.out.println("6.Devolver serie");
-		System.out.println("7.Buscar una pelicula");
+		System.out.println("7.Buscar un elemento del videoclub");
 		System.out.println("8.Salir");
 
 		pedirOpcion();
@@ -1196,7 +1200,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = (usuarioEstandar.buscarAlquilablePorNombre(nombre,totalElementos));
 
-											System.out.println(listaElementos.toString());// MEJORAR*****
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -1206,7 +1210,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = usuarioEstandar.buscarAlquilablePorDirector(nombre,totalElementos);
 
-											System.out.println(listaElementos.toString());// MEJORAR*****
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -1216,7 +1220,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = usuarioEstandar.buscarAlquilableLanzamiento(aux,totalElementos);
 
-											System.out.println(listaElementos.toString());// MEJORAR*****
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -1226,7 +1230,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 											listaElementos = usuarioEstandar.buscarAlquilableLanzamiento(aux,totalElementos);
 
-											System.out.println(listaElementos.toString());// MEJORAR*****
+											System.out.println(listaElementos.toString());
 
 											break;
 
@@ -1288,32 +1292,6 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 			case 2:
 
-				do {
-
-					preguntarQueElementoAdd();
-
-					if (opc == 1) {
-
-						nueva = new Peliculas();
-
-						nueva.addPeliculaAlVideoClub(nueva, totalElementos, peliculas, animacion, cienciaFiccion,tradicional, porOrdenador, stopMotion, otras);
-
-					} else if (opc == 2) {
-
-						estreno.addSeriesAlVideoClub(totalElementos, series);
-
-					} else {
-
-						opcionIncorrecta();
-
-					}
-
-				} while (opc != 1 && opc != 2);
-
-				break;
-
-			case 3:
-
 				imprimirTotalElementos();
 
 				preguntarImprimirPorTipos();
@@ -1335,22 +1313,50 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 				}
 
 				break;
+				
+			case 3:
+				
+				do {
+
+					preguntarQueElementoAdd();
+
+					if (opc == 1) {
+
+						nueva = new Peliculas();
+
+						nueva.addPeliculaAlVideoClub(nueva, totalElementos, peliculas, animacion, cienciaFiccion,tradicional, porOrdenador, stopMotion, otras);
+
+					} else if (opc == 2) {
+						
+						estreno = new Series();
+						
+						estreno.addSeriesAlVideoClub(totalElementos, series);
+
+					} else {
+
+						opcionIncorrecta();
+
+					}
+
+				} while (opc != 1 && opc != 2);
+
+				break;
+
+
+				
 
 			case 4:
 
 				do {
-					/// ****************************
-					System.out.println("Qué elemento quieres eliminar?");// MIrar Esto xq no elimina//////
-					System.out.println("1.Película        2.Serie"); // **************************
-
-					pedirOpcion();
+					
+					menuEliminarElemento();
 
 					if (opc == 1) {
 
 						System.out.println("Qué nombre tiene la película que vamos a eliminar?");
 						nombre = sc.nextLine();
 
-						nueva = new Peliculas();/// Esto esta mal tiene pinta
+						nueva = new Peliculas();
 
 						if (nueva.eliminarPelicula(nombre, totalElementos, peliculas, animacion, cienciaFiccion,tradicional, porOrdenador, stopMotion, otras) == true) {
 
@@ -1365,7 +1371,7 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 					} else if (opc == 2) {
 
-						estreno = new Series();// Esto esta mal tiene pinta
+						estreno = new Series();
 
 						if (estreno.eliminarSerie(nombre, totalElementos, series) == true) {
 
@@ -1388,7 +1394,8 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 				break;
 
 			case 5:
-
+				
+				System.out.println("");
 				System.out.println("Gracias por utilizar la Aplicación!!Hasta pronto!!");
 
 				break;
@@ -1403,6 +1410,15 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 		} while (opc != 5);
 
+	}
+
+	public void menuEliminarElemento() {
+		
+		System.out.println("Qué elemento quieres eliminar?");
+		System.out.println("1.Película        2.Serie");
+
+		pedirOpcion();
+		
 	}
 
 	public void empleadoBorraCliente() {
@@ -1454,8 +1470,8 @@ public class VideoClub { // Pasar la valoracion de una serie a las temporadas y 
 
 		System.out.println("");
 		System.out.println("1.Atender a un cliente");
-		System.out.println("2.Introducir elemento al videoclub");
-		System.out.println("3.Ver los elementos del videoclub al completo");
+		System.out.println("2.Ver los elementos del videoclub al completo");
+		System.out.println("3.Introducir elemento al videoclub");
 		System.out.println("4.Eliminar elemento al videoclub");
 		System.out.println("5.Salir");
 		System.out.println("");

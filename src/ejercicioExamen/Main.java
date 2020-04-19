@@ -20,9 +20,8 @@ public class Main {
 		System.out.println("BIENVENIDOS AL VIDEOCLUB DE LA FAMILIA MORENO");
 		System.out.println("=============================================");
 		System.out.println("              Iniciar sesión");
-		System.out.println("");
 
-		uJ = new UsuarioJefe("g", "m", 1);
+		uJ = new UsuarioJefe("Daniel", "Programación", 1);// Nombre,contraseña y Id inicial del UsuarioJefe
 
 		uS = new UsuarioSistema();
 
@@ -30,7 +29,9 @@ public class Main {
 
 		do {
 
+			System.out.println("");
 			System.out.println("      Introduce tu nombre de usuario");
+			System.out.println("");
 
 			String nombre = sc.nextLine();
 
@@ -62,7 +63,7 @@ public class Main {
 			System.out.println("********************");
 
 		}
-		
+
 		sc.close();
 
 	}

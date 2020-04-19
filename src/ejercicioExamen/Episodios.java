@@ -1,9 +1,8 @@
 package ejercicioExamen;
 
 public class Episodios {
-	
+
 	private Double valoracion;
-	
 
 	public Episodios() {
 
@@ -16,15 +15,15 @@ public class Episodios {
 	}
 
 	public Double getValoracion() {
-		
+
 		return valoracion;
-		
+
 	}
 
 	public void setValoracion(Double valoracion) {
-		
+
 		this.valoracion = valoracion;
-		
+
 	}
 
 }

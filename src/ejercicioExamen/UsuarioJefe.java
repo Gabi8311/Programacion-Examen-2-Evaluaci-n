@@ -7,7 +7,7 @@ public class UsuarioJefe extends UsuarioSistema {
 
 	Scanner sc = new Scanner(System.in);
 
-	protected ArrayList<UsuarioSistema> empleados = new ArrayList<>();
+	private ArrayList<UsuarioSistema> empleados = new ArrayList<>();
 
 	private Integer idEmple;
 
@@ -28,26 +28,15 @@ public class UsuarioJefe extends UsuarioSistema {
 		this.id = idEmple;
 
 	}
-
-	public ArrayList<UsuarioSistema> getEmpleados() {
-
-		return empleados;
-
-	}
-
-	public void setEmpleados(ArrayList<UsuarioSistema> empleados) {
-
-		this.empleados = empleados;
-
-	}
+	
+	/*Crea y añade empleado,al ArrayList de los usuarios de la Aplicación y a otro
+	 * del staff del videoclub.Le pasamos los dos ArrayList*/
 
 	public boolean addEmpleado(UsuarioSistema uS, ArrayList<UsuarioSistema> staff,
-			ArrayList<UsuarioSistema> usuariosAplicacion) {// Este método mira que no haya 2
-		// números de cliente iguales
+			ArrayList<UsuarioSistema> usuariosAplicacion) {
 
 		uS = new UsuarioEstandar(introducirNombreEmpleNuevo(), introducirContraseñaEmpleNuevo(contra),
 				introducirIdEmpleNuevo(staff));
-		// sc.nextLine();
 
 		for (UsuarioSistema i : staff) {
 
@@ -75,6 +64,12 @@ public class UsuarioJefe extends UsuarioSistema {
 
 	}
 
+	/*Borra al empleado de los ArrayList a los que pertenece.
+	 * Devuelve 2 si el ArrayList está vacio.
+	 * Devuelve 1 si todo va correctamente.
+	 * Devuelve 0 si el nombre coincide pero no el Id
+	 * Devuelve -1 si el nombre no coincide*/
+	
 	public int removeEmpleado(String nombre, Integer numero, ArrayList<UsuarioSistema> staff,
 			ArrayList<UsuarioSistema> usuariosAplicacion) {
 
@@ -131,7 +126,7 @@ public class UsuarioJefe extends UsuarioSistema {
 		System.out.println("Introduce el nombre del nuevo empleado");
 		nombre = sc.nextLine();
 
-		while (nombre.equals("g")) {// CAMBIAR ESTO Y EL JEFE USUARIO SISTEMA
+		while (nombre.equals("Daniel")) {
 
 			System.out.println("Nombre reservado para la empresa.Introduce otro nombre válido");
 			System.out.println("");
@@ -151,6 +146,10 @@ public class UsuarioJefe extends UsuarioSistema {
 		return sc.nextLine();
 
 	}
+	
+	/*Se pide el Id y se comprueba que no coincida con el del UsuarioJefe,en este caso el 1,
+	 * y también comprueba que no haya otro empleado con ese Id.Se le pasa el ArrayList de los
+	 * empleados del videoclub .Retorna el Id,asegurando que no hay otro igual*/
 
 	public Integer introducirIdEmpleNuevo(ArrayList<UsuarioSistema> staff) {
 
@@ -159,6 +158,7 @@ public class UsuarioJefe extends UsuarioSistema {
 		boolean condicion = true;
 
 		do {
+			
 			condicion = true;
 
 			System.out.println("Introduce el número de Id del nuevo empleado");
@@ -202,60 +202,6 @@ public class UsuarioJefe extends UsuarioSistema {
 
 	}
 
-//		boolean condicion = false;
-//		
-//		do {
-//			
-//			System.out.println("Introduce el número de identificación del nuevo empleado");
-//
-//			idEmple = sc.nextInt();
-//
-//			if (idEmple == 1) {
-//
-//				System.out.println("Ese número está reservado para el CEO");
-//				
-//				System.out.println(condicion);
-//				 
-//				condicion = false;
-//				
-//
-//			} else if(staff.size()==0) {
-//				System.out.println("esta vacio");
-//				
-//						condicion = true;
-//							
-//						return idEmple;
-//						
-//		    }else  {
-//		    	boolean noesigual = true;
-//		    			for(UsuarioSistema i:staff) {
-//		    				
-//		    				System.out.println(i.getId());
-//		    				System.out.println(idEmple);
-//		    			  if(idEmple.equals(i.getId())){
-//		    				
-//		    				System.out.println("Ese número ya lo tiene un empleado como identificador");
-//		    				
-//		    				condicion = false;
-//		    				noesigual = false;
-//		    			  }
-//		    			  
-//		    			}	
-//		    			if(noesigual) {
-//		    				condicion = true;
-//		    			}
-//					
-//				}
-//			
-//		
-//	
-//
-//		} while (condicion == false);
-//
-//		return idEmple;
-//
-//	}
-
 	public void ListarEmpleados(ArrayList<UsuarioSistema> staff) {
 
 		if (staff.size() == 0) {
@@ -280,4 +226,28 @@ public class UsuarioJefe extends UsuarioSistema {
 
 	}
 
+	public Integer getIdEmple() {
+		
+		return idEmple;
+		
+	}
+
+	public void setIdEmple(Integer idEmple) {
+		
+		this.idEmple = idEmple;
+		
+	}
+
+	public ArrayList<UsuarioSistema> getEmpleados() {
+
+		return empleados;
+
+	}
+
+	public void setEmpleados(ArrayList<UsuarioSistema> empleados) {
+
+		this.empleados = empleados;
+
+	}
+	
 }

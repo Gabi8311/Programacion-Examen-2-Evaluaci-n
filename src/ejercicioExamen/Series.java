@@ -50,6 +50,8 @@ public class Series extends Alquilables {
 
 	}
 
+	/*Añade la serie al videoclub. Pasamos al método los ArrayList de los que forman parte.*/
+	
 	public boolean addSeriesAlVideoClub(ArrayList<Alquilables> alquilables, ArrayList<Series> todasSeries) {
 
 		Scanner sc = new Scanner(System.in);
@@ -73,11 +75,11 @@ public class Series extends Alquilables {
 				Integer lanzamiento = sc.nextInt();
 				sc.nextLine();
 
-				if (lanzamiento > 2020) {
+				while (lanzamiento > 2020 || lanzamiento < 1951) {
 
 					System.out.println("Año de lanzamiento erróneo");
 					System.out.println("Introduce el año de lanzamiento real:");
-					valoracion = sc.nextDouble();
+					lanzamiento = sc.nextInt();
 					sc.nextLine();
 
 				}
@@ -131,6 +133,8 @@ public class Series extends Alquilables {
 
 	}
 
+	/*Elimina la serie del videoclub. Pasamos al método los ArrayList de los que forman parte.*/
+	
 	public boolean eliminarSerie(String nombre, ArrayList<Alquilables> alquilables, ArrayList<Series> todasSeries) {
 
 		for (Series i : todasSeries) {
@@ -186,7 +190,7 @@ public class Series extends Alquilables {
 	@Override
 	public String toString() {
 
-		return super.toString() + "; Num.de Temporadas: " + this.numTemporadas;
+		return super.toString() + "; Num.de Temporadas: " + this.numTemporadas+"\n";
 
 	}
 
