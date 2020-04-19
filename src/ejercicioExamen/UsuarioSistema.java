@@ -12,6 +12,8 @@ public class UsuarioSistema extends Usuario {
 
 	protected String apeCliente;
 
+	protected Integer idCliente;
+
 	protected Alquilables nuevoAlquilable;
 
 	protected ArrayList<Usuario> personal = new ArrayList<Usuario>();
@@ -66,6 +68,8 @@ public class UsuarioSistema extends Usuario {
 
 		String contra;
 
+		Integer contador = 2;
+
 		for (UsuarioSistema i : usuarioAplicacion) {
 
 			if (i.getNombre().equalsIgnoreCase(nombre)) {
@@ -74,10 +78,11 @@ public class UsuarioSistema extends Usuario {
 				System.out.println("Contraseña:");
 				System.out.println("");
 
+				contador--;
+
 				contra = sc.nextLine();
-
 				System.out.println("");
-
+				
 				if (i.getContra().equals(contra)) {
 
 					this.nombre = nombre;
@@ -85,6 +90,31 @@ public class UsuarioSistema extends Usuario {
 					this.contra = contra;
 
 					return true;
+					
+				}
+
+				while (contador >= 0) {
+					
+					System.out.println("");
+					System.out.println("** Contraseña Incorrecta.Vuelve a intentarlo **");
+					System.out.println("");
+					System.out.println("Contraseña:");
+					System.out.println("");
+					
+					contador--;
+
+					contra = sc.nextLine();
+					System.out.println("");
+
+					if (i.getContra().equals(contra)) {
+
+						this.nombre = nombre;
+
+						this.contra = contra;
+
+						return true;
+
+					}
 
 				}
 
@@ -100,7 +130,7 @@ public class UsuarioSistema extends Usuario {
 
 		for (Cliente i : socios) {
 
-			if (i.getAccountNumber() == (numCliente)) {
+			if (i.getAccountNumber().equals(numCliente)) {
 
 				System.out.println("Estás atendiendo a: " + i);
 
@@ -121,7 +151,6 @@ public class UsuarioSistema extends Usuario {
 	public boolean addCliente(ArrayList<Cliente> socios) {
 
 		cliente = new Cliente(introducirNombre(), introducirApellido(), introducirNumClienteNuevo());
-		sc.nextLine();
 
 		for (Cliente i : socios) {
 
@@ -201,7 +230,7 @@ public class UsuarioSistema extends Usuario {
 			System.out.println("No hay socios que listar");
 
 		} else {
-			
+
 			System.out.println("LISTA DE SOCIOS");
 			System.out.println("...............");
 
@@ -210,9 +239,9 @@ public class UsuarioSistema extends Usuario {
 				System.out.println(i);
 
 			}
-			
+
 		}
-		
+
 	}
 
 	public void ordenar(ArrayList<Alquilables> lista) {
@@ -526,8 +555,20 @@ public class UsuarioSistema extends Usuario {
 	public Integer introducirNumClienteNuevo() {
 
 		System.out.println("Registra el nuevo número de socio del nuevo Cliente");
+		idCliente = sc.nextInt();
+		sc.nextLine();
 
-		return sc.nextInt();
+		while (idCliente < 1) {
+
+			System.out.println("** El número debe ser mayor a 0 **");
+			System.out.println("");
+			System.out.println("Registra el nuevo número de socio del nuevo Cliente");
+			idCliente = sc.nextInt();
+			sc.nextLine();
+
+		}
+
+		return idCliente;
 
 	}
 

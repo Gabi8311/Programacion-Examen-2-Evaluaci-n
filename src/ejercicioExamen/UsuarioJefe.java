@@ -160,6 +160,16 @@ public class UsuarioJefe extends UsuarioSistema {
 			System.out.println("Introduce el número de Id del nuevo empleado");
 			idEmple = sc.nextInt();
 			sc.nextLine();
+			
+			 while(idEmple < 1) {
+				 
+				 System.out.println("** El número debe ser mayor a 0 **");
+				 System.out.println("");
+				 System.out.println("Registra el nuevo número Id del nuevo Empleado");
+				 idEmple = sc.nextInt();
+				 sc.nextLine();
+				
+			 }
 
 			if (idEmple == 1) {
 
@@ -167,7 +177,7 @@ public class UsuarioJefe extends UsuarioSistema {
 				System.out.println("");
 
 				condicion = false;
-
+				
 			} else {
 
 				if (staff.size() == 0) {
