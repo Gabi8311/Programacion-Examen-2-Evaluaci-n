@@ -6,27 +6,25 @@ import java.util.Scanner;
 
 public class VideoClub { 
 
-	UsuarioJefe jefe;
+	private UsuarioJefe jefe;
 
-	UsuarioEstandar usuarioEstandar;
+	private UsuarioEstandar usuarioEstandar;
 
-	Cliente client;
+	private Cliente client;
 
-	String peli;
+	private String peli;
 
-	String serie;
+	private String serie;
 
-	Double valoracionCliente;
+	private Double valoracionCliente;
 
-	String nombre;
+	private String nombre;
 
-	String apellido;
+	private Integer numSocio;
 
-	Integer numSocio;
+	private String respuesta;
 
-	String respuesta;
-
-	Integer aux;
+	private Integer aux;
 
 	private ArrayList<Alquilables> listaElementos = new ArrayList<Alquilables>();
 
@@ -66,36 +64,36 @@ public class VideoClub {
 
 	private Series estreno;
 
-	Peliculas p1 = new Peliculas("Star Wars:Episodio 1-La amenaza fantasma", "George Lucas", 1999, 5.0, 10,"Ciencia Ficción");
-	Peliculas p2 = new Peliculas("Star Wars:Episodio 2-El ataque de los clones", "George Lucas", 2002, 5.0, 10,"Ciencia Ficción");
-	Peliculas p3 = new Peliculas("Star Wars:Episodio 3-La venganza de los Sith", "George Lucas", 2005, 5.0, 10,"Ciencia Ficción");
-	Peliculas p4 = new Peliculas("Star Wars:Episodio 4-Una nueva esperanza", "George Lucas", 1977, 5.0, 10,"Ciencia Ficción");
-	Peliculas p5 = new Peliculas("Star Wars:Episodio 5-El Imperio contraataca", "George Lucas", 1980, 5.0, 10,"Ciencia Ficción");
-	Peliculas p6 = new Peliculas("Star Wars:Episodio 6-El retorno del Jedi", "George Lucas", 1983, 5.0, 10,"Ciencia Ficción");
-	Peliculas p7 = new Peliculas("Star Wars:Episodio 7-El despertar de la fuerza", "George Lucas", 2015, 5.0, 10,"Ciencia Ficción");
-	Peliculas p8 = new Peliculas("Star Wars:Episodio 8-Los últimos Jedi", "George Lucas", 2017, 5.0, 10,"Ciencia Ficción");
-	Peliculas p9 = new Peliculas("Star Wars:Episodio 9-El ascenso de Skywalker", "George Lucas", 2019, 5.0, 10,"Ciencia Ficción");
-	Peliculas p10 = new Peliculas("Rogue One:Una historia de Star Wars", "George Lucas", 2016, 5.0, 10,"Ciencia Ficción");
-	Peliculas p11 = new Peliculas("Han Solo:Una historia de Star Wars", "George Lucas", 1999, 5.0, 10,"Ciencia Ficción");
-	Peliculas p12 = new Peliculas("La guerra de los clones", "George Lucas", 2008, 5.0, 10, "Ciencia Ficción");
+	private Peliculas p1 = new Peliculas("Star Wars:Episodio 1-La amenaza fantasma", "George Lucas", 1999, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p2 = new Peliculas("Star Wars:Episodio 2-El ataque de los clones", "George Lucas", 2002, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p3 = new Peliculas("Star Wars:Episodio 3-La venganza de los Sith", "George Lucas", 2005, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p4 = new Peliculas("Star Wars:Episodio 4-Una nueva esperanza", "George Lucas", 1977, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p5 = new Peliculas("Star Wars:Episodio 5-El Imperio contraataca", "George Lucas", 1980, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p6 = new Peliculas("Star Wars:Episodio 6-El retorno del Jedi", "George Lucas", 1983, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p7 = new Peliculas("Star Wars:Episodio 7-El despertar de la fuerza", "George Lucas", 2015, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p8 = new Peliculas("Star Wars:Episodio 8-Los últimos Jedi", "George Lucas", 2017, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p9 = new Peliculas("Star Wars:Episodio 9-El ascenso de Skywalker", "George Lucas", 2019, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p10 = new Peliculas("Rogue One:Una historia de Star Wars", "George Lucas", 2016, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p11 = new Peliculas("Han Solo:Una historia de Star Wars", "George Lucas", 1999, 5.0, 10,"Ciencia Ficción");
+	private Peliculas p12 = new Peliculas("La guerra de los clones", "George Lucas", 2008, 5.0, 10, "Ciencia Ficción");
 
-	Peliculas p13 = new Peliculas("El Rey León", "Rob Minkoff", 1994, 5.0, 10, "Animación:Tradicional");
-	Peliculas p14 = new Peliculas("Aladdin", "Ron Clements", 1992, 5.0, 10, "Animación:Tradicional");
-	Peliculas p15 = new Peliculas("Dragon Ball Z: El más fuerte del mundo", "Daisuke Nishio", 1990, 5.0, 10,"Animación:Tradicional");
-	Peliculas p16 = new Peliculas("Gru,mi villano favorito", "Pierre Coffin", 2010, 5.0, 10, "Animación:Por ordenador");
-	Peliculas p17 = new Peliculas("Gru,mi villano favorito 2", "Pierre Coffin", 2013, 5.0, 10,"Animación:Por ordenador");
-	Peliculas p18 = new Peliculas("Gru,mi villano favorito 3", "Pierre Coffin", 2017, 5.0, 10,"Animación:Por ordenador");
-	Peliculas p19 = new Peliculas("Minions", "Pierre Coffin", 2015, 5.0, 10, "Animación:Por ordenador");
-	Peliculas p20 = new Peliculas("Lego,The movie", "Phil Lord", 2014, 5.0, 10, "Animación:Stop Motion");
-	Peliculas p21 = new Peliculas("La oveja Shaun,La película", "Richard Goleszowski", 2015, 5.0, 10,"Animación:Stop Motion");
-	Peliculas p22 = new Peliculas("Cavernícola", "Nick Park", 2018, 5.0, 10, "Animación:Stop Motion");
-
-	Series s1 = new Series("La casa de papel", "Alex Pina", 2017, 5.0, 10, 4);
-	Series s2 = new Series("Gomorra", "Roberto Saviano", 2014, 5.0, 10, 4);
-	Series s3 = new Series("Juego de tronos", "George R.R.Martin", 2011, 5.0, 10, 8);
-	Series s4 = new Series("Los Soprano", "David Chase", 1999, 5.0, 10, 6);
-	Series s5 = new Series("Hijos de la Anarquía", "Kurt Sutter", 2008, 5.0, 10, 7);
-	Series s6 = new Series("Breaking Bad", "Vince Gilligan", 2008, 5.0, 10, 5);
+	private Peliculas p13 = new Peliculas("El Rey León", "Rob Minkoff", 1994, 5.0, 10, "Animación:Tradicional");
+	private Peliculas p14 = new Peliculas("Aladdin", "Ron Clements", 1992, 5.0, 10, "Animación:Tradicional");
+	private Peliculas p15 = new Peliculas("Dragon Ball Z: El más fuerte del mundo", "Daisuke Nishio", 1990, 5.0, 10,"Animación:Tradicional");
+	private Peliculas p16 = new Peliculas("Gru,mi villano favorito", "Pierre Coffin", 2010, 5.0, 10, "Animación:Por ordenador");
+	private Peliculas p17 = new Peliculas("Gru,mi villano favorito 2", "Pierre Coffin", 2013, 5.0, 10,"Animación:Por ordenador");
+	private Peliculas p18 = new Peliculas("Gru,mi villano favorito 3", "Pierre Coffin", 2017, 5.0, 10,"Animación:Por ordenador");
+	private Peliculas p19 = new Peliculas("Minions", "Pierre Coffin", 2015, 5.0, 10, "Animación:Por ordenador");
+	private Peliculas p20 = new Peliculas("Lego,The movie", "Phil Lord", 2014, 5.0, 10, "Animación:Stop Motion");
+	private Peliculas p21 = new Peliculas("La oveja Shaun,La película", "Richard Goleszowski", 2015, 5.0, 10,"Animación:Stop Motion");
+	private Peliculas p22 = new Peliculas("Cavernícola", "Nick Park", 2018, 5.0, 10, "Animación:Stop Motion");
+ 
+	private Series s1 = new Series("La casa de papel", "Alex Pina", 2017, 5.0, 10, 4);
+	private Series s2 = new Series("Gomorra", "Roberto Saviano", 2014, 5.0, 10, 4);
+	private Series s3 = new Series("Juego de tronos", "George R.R.Martin", 2011, 5.0, 10, 8);
+	private Series s4 = new Series("Los Soprano", "David Chase", 1999, 5.0, 10, 6);
+	private Series s5 = new Series("Hijos de la Anarquía", "Kurt Sutter", 2008, 5.0, 10, 7);
+	private Series s6 = new Series("Breaking Bad", "Vince Gilligan", 2008, 5.0, 10, 5);
 	
 	Scanner sc = new Scanner(System.in);
 
@@ -107,16 +105,16 @@ public class VideoClub {
 
 				System.out.println(i);
 
-				if (i instanceof UsuarioEstandar) {
+				if (i instanceof UsuarioJefe) {
 
-					return true;
+					return false;
 
 				}
 
 			}
 
 		}
-		return false;
+		return true;
 
 	}
 
@@ -164,25 +162,25 @@ public class VideoClub {
 
 					switch (opc) {
 
-					case 11:
+					case 1:
 
 						jefeAddCliente();
 
 						break;
 
-					case 22:
+					case 2:
 
 						jefeBorraCliente();
 
 						break;
 
-					case 33:
+					case 3:
 
 						jefe.ListarClientes(socios);
 
 						break;
 
-					case 44:
+					case 4:
 
 						idCliente = jefe.introducirNumCliente();
 
@@ -198,7 +196,7 @@ public class VideoClub {
 
 								switch (opc) {
 
-								case 111:
+								case 1:
 
 									imprimirTotalPeliculas();
 
@@ -220,13 +218,13 @@ public class VideoClub {
 
 									break;
 
-								case 222:
+								case 2:
 
 									imprimirTotalSeries();
 
 									break;
 
-								case 333:
+								case 3:
 
 									do {
 
@@ -279,7 +277,7 @@ public class VideoClub {
 
 									break;
 
-								case 444:
+								case 4:
 
 									System.out.println("Qué serie quieres alquilar?");
 									serie = sc.nextLine();
@@ -300,7 +298,7 @@ public class VideoClub {
 
 									break;
 
-								case 555:
+								case 5:
 
 									System.out.println("Qué pelicula se devuelve?");
 									peli = sc.nextLine();
@@ -321,7 +319,7 @@ public class VideoClub {
 
 									break;
 
-								case 666:
+								case 6:
 
 									System.out.println("Qué serie se devuelve?");
 									serie = sc.nextLine();
@@ -342,15 +340,13 @@ public class VideoClub {
 
 									break;
 
-								case 777:
-
-									do {
+								case 7:
 
 										menuEncontrarElementoPorAtributo();
 
 										switch (opc) {
 
-										case 1111:
+										case 1:
 
 											introducirNombre();
 
@@ -360,7 +356,7 @@ public class VideoClub {
 
 											break;
 
-										case 2222:
+										case 2:
 
 											introducirDirector();
 
@@ -370,7 +366,7 @@ public class VideoClub {
 
 											break;
 
-										case 3333:
+										case 3:
 
 											introducirAñoLanzamiento();
 
@@ -380,7 +376,7 @@ public class VideoClub {
 
 											break;
 
-										case 4444:
+										case 4:
 
 											introducirNumeroCopias();
 
@@ -390,7 +386,7 @@ public class VideoClub {
 
 											break;
 
-										case 5555:
+										case 5:
 
 											imprimirVolverAlMenuAnterior();
 
@@ -403,15 +399,10 @@ public class VideoClub {
 											break;
 
 										}
-										
-
-									} while (opc != 5555);
-
-									
 									
 									break;
 
-								case 888:
+								case 8:
 
 									imprimirVolverAlMenuAnterior();
 
@@ -425,13 +416,13 @@ public class VideoClub {
 
 								}
 
-							} while (opc != 888);
+							} while (opc != 8);
 
 						}
 
 						break;
 
-					case 55:
+					case 5:
 
 						imprimirVolverAlMenuAnterior();
 
@@ -445,7 +436,7 @@ public class VideoClub {
 
 					}
 
-				} while (opc != 55);
+				} while (opc != 5);
 
 				break;
 
@@ -952,15 +943,9 @@ public class VideoClub {
 
 	public void AddJefeAEmpleado(UsuarioSistema uS) {
 
-		if (jefe.addEmpleado(uS, staff, usuariosAplicacion) == true) {
+		jefe.addEmpleado(uS, staff, usuariosAplicacion);
 
 			System.out.println("El nuevo empleado se ha sumado a nuestro Staff");
-
-		} else {
-
-			System.out.println("Este número de empleado ya forma parte de nuestro equipo");
-
-		}
 
 	}
 
@@ -1006,25 +991,25 @@ public class VideoClub {
 
 					switch (opc) {
 
-					case 11:
+					case 1:
 
 						empleadoAddCliente();
 
 						break;
 
-					case 22:
+					case 2:
 
 						empleadoBorraCliente();
 
 						break;
 
-					case 33:
+					case 3:
 
 						usuarioEstandar.ListarClientes(socios);
 
 						break;
 
-					case 44:
+					case 4:
 
 						idCliente = usuarioEstandar.introducirNumCliente();
 
@@ -1040,7 +1025,7 @@ public class VideoClub {
 
 								switch (opc) {
 
-								case 111:
+								case 1:
 
 									imprimirTotalPeliculas();
 
@@ -1062,13 +1047,13 @@ public class VideoClub {
 
 									break;
 
-								case 222:
+								case 2:
 
 									imprimirTotalSeries();
 
 									break;
 
-								case 333:
+								case 3:
 
 									do {
 
@@ -1123,7 +1108,7 @@ public class VideoClub {
 
 									break;
 
-								case 444:
+								case 4:
 
 									System.out.println("Qué serie quieres alquilar?");
 									serie = sc.nextLine();
@@ -1144,7 +1129,7 @@ public class VideoClub {
 
 									break;
 
-								case 555:
+								case 5:
 
 									System.out.println("Qué pelicula se devuelve?");
 									peli = sc.nextLine();
@@ -1165,7 +1150,7 @@ public class VideoClub {
 
 									break;
 
-								case 666:
+								case 6:
 
 									System.out.println("Qué serie se devuelve?");
 									serie = sc.nextLine();
@@ -1186,15 +1171,13 @@ public class VideoClub {
 
 									break;
 
-								case 777:
-
-									//do {
+								case 7:
 
 										menuEncontrarElementoPorAtributo();
 
 										switch (opc) {
 
-										case 1111:
+										case 1:
 
 											introducirNombre();
 
@@ -1204,7 +1187,7 @@ public class VideoClub {
 
 											break;
 
-										case 2222:
+										case 2:
 
 											introducirDirector();
 
@@ -1214,7 +1197,7 @@ public class VideoClub {
 
 											break;
 
-										case 3333:
+										case 3:
 
 											introducirAñoLanzamiento();
 
@@ -1224,7 +1207,7 @@ public class VideoClub {
 
 											break;
 
-										case 4444:
+										case 4:
 
 											introducirNumeroCopias();
 
@@ -1234,7 +1217,7 @@ public class VideoClub {
 
 											break;
 
-										case 5555:
+										case 5:
 
 											imprimirVolverAlMenuAnterior();
 
@@ -1247,12 +1230,10 @@ public class VideoClub {
 										break;
 										
 										}
+										
+									break;
 
-									//} while (opc != 5555);
-
-									//break;
-
-								case 888:
+								case 8:
 
 									imprimirVolverAlMenuAnterior();
 
@@ -1266,13 +1247,13 @@ public class VideoClub {
 
 								}
 
-							} while (opc != 888);
+							} while (opc != 8);
 
 						}
 
 						break;
 
-					case 55:
+					case 5:
 
 						imprimirVolverAlMenuAnterior();
 
@@ -1286,7 +1267,7 @@ public class VideoClub {
 
 					}
 
-				} while (opc != 55);
+				} while (opc != 5);
 
 				break;
 

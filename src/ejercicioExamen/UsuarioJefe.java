@@ -32,7 +32,7 @@ public class UsuarioJefe extends UsuarioSistema {
 	/*Crea y añade empleado,al ArrayList de los usuarios de la Aplicación y a otro
 	 * del staff del videoclub.Le pasamos los dos ArrayList*/
 
-	public boolean addEmpleado(UsuarioSistema uS, ArrayList<UsuarioSistema> staff,
+	public void addEmpleado(UsuarioSistema uS, ArrayList<UsuarioSistema> staff,
 			ArrayList<UsuarioSistema> usuariosAplicacion) {
 
 		uS = new UsuarioEstandar(introducirNombreEmpleNuevo(), introducirContraseñaEmpleNuevo(contra),
@@ -46,8 +46,6 @@ public class UsuarioJefe extends UsuarioSistema {
 
 					if (uS.getId() == j.getId()) {
 
-						return false;
-
 					}
 
 				}
@@ -59,8 +57,6 @@ public class UsuarioJefe extends UsuarioSistema {
 		usuariosAplicacion.add(uS);
 
 		staff.add(uS);
-
-		return true;
 
 	}
 
@@ -128,7 +124,7 @@ public class UsuarioJefe extends UsuarioSistema {
 
 		while (nombre.equals("Daniel")) {
 
-			System.out.println("Nombre reservado para la empresa.Introduce otro nombre válido");
+			System.out.println("** Nombre reservado para la empresa.Introduce otro nombre válido **");
 			System.out.println("");
 			System.out.println("Introduce el nombre del nuevo empleado");
 			nombre = sc.nextLine();
@@ -184,7 +180,7 @@ public class UsuarioJefe extends UsuarioSistema {
 
 						if (idEmple.equals(i.getId())) {
 
-							System.out.println("Identificador no válido,ya tenemos un empleado registrado con ese número");
+							System.out.println("** Identificador no válido,ya tenemos un empleado registrado con ese número **");
 							System.out.println("");
 							
 							condicion = false;
@@ -209,6 +205,9 @@ public class UsuarioJefe extends UsuarioSistema {
 			System.out.println("No tienes empleados que listar");
 
 		} else {
+			
+			System.out.println("LISTA DE EMPLEADOS");
+			System.out.println("..................");
 
 			for (UsuarioSistema i : staff) {
 
@@ -216,13 +215,6 @@ public class UsuarioJefe extends UsuarioSistema {
 			}
 
 		}
-
-	}
-
-	@Override
-	public String toString() {
-
-		return "CEO de la Empresa: " + "\n" + "==================" + "\n" + super.toString();
 
 	}
 
@@ -247,6 +239,13 @@ public class UsuarioJefe extends UsuarioSistema {
 	public void setEmpleados(ArrayList<UsuarioSistema> empleados) {
 
 		this.empleados = empleados;
+
+	}
+	
+	@Override
+	public String toString() {
+
+		return "CEO de la Empresa: " + "\n" + "==================" + "\n" + super.toString();
 
 	}
 	
