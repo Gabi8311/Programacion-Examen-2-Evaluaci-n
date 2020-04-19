@@ -101,7 +101,7 @@ public class VideoClub {
 
 		for (UsuarioSistema i : usuariosAplicacion) {
 
-			if (i.getNombre().equals(usuario.getNombre()) && i.getContra().equals(usuario.getContra())) {
+			if (i.getNombre().equalsIgnoreCase(usuario.getNombre()) && i.getContra().equals(usuario.getContra())) {
 
 				System.out.println(i);
 
